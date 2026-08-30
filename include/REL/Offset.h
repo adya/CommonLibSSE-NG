@@ -50,6 +50,13 @@ namespace REL
 #endif
 		}
 
+		// VR defaults to the SE offset when no VR-specific offset is provided.
+		explicit constexpr VariantOffset(
+			std::size_t a_seOffset,
+			std::size_t a_aeOffset) noexcept :
+			VariantOffset(a_seOffset, a_aeOffset, a_seOffset)
+		{}
+
 		[[nodiscard]] std::uintptr_t address() const
 		{
 			auto thisOffset = offset();
