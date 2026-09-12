@@ -664,6 +664,7 @@ set(SOURCES
 	include/RE/C/CombatNavmeshSearch.h
 	include/RE/C/CombatObject.h
 	include/RE/C/CombatPath.h
+	include/RE/C/CombatProjectileAimController.h
 	include/RE/C/CombatSearchLocation.h
 	include/RE/C/CombatState.h
 	include/RE/C/CombatTargetLocation.h
@@ -2241,6 +2242,7 @@ set(SOURCES
 	src/RE/C/CombatGroup.cpp
 	src/RE/C/CombatInventory.cpp
 	src/RE/C/CombatPath.cpp
+	src/RE/C/CombatProjectileAimController.cpp
 	src/RE/C/CombatState.cpp
 	src/RE/C/CombatTargetLocation.cpp
 	src/RE/C/CombatTargetLocationSearch.cpp
