@@ -14,6 +14,9 @@ namespace RE
 	class CombatAimController : public CombatObject
 	{
 	public:
+		inline static constexpr auto RTTI = RTTI_CombatAimController;
+		inline static constexpr auto VTABLE = VTABLE_CombatAimController;
+
 		enum class PRIORITY : uint32_t
 		{
 			kUnk0,
@@ -36,29 +39,18 @@ namespace RE
 		};
 		using FLAGS = stl::enumeration<Flags, uint32_t>;
 
-		// override(CombatObject)
-		std::uint32_t GetObjectType() override;    // 02
-		void SaveGame(BGSSaveGameBuffer* a_buf) override;  // 03
-		void LoadGame(BGSLoadGameBuffer* a_buf) override;  // 04
+		~CombatAimController() override;  // 00
+
+		// override (CombatObject)
+		std::uint32_t GetObjectType() override;  // 02
 
 		// add
-		virtual bool                 CheckAim(const NiPoint3& from, const NiPoint3& to);  // 05
-		virtual bool                 CheckAim(const NiPoint3& P);                         // 06
-		virtual bool                 CheckAim(float cone);                                // 07
-		virtual void                 Update();                                            // 08
-		virtual CombatAimController* Clone() const;                                       // 09
-		virtual void                 FinishLoadGame();                                    // 0A
-
-		uint32_t CalculatePriority(PRIORITY priority);
-		void     ClearAim();
-		bool     GetTargetLastSeenLocation(NiPoint3& ans);
-		bool     HasTargetLOS() const;
-		void     Register();
-		void     SetAim(const NiPoint3& P);
-		void     Unregister();
-
-		[[nodiscard]] static CombatAimController* Create(CombatController* control, PRIORITY priority);
-		[[nodiscard]] static CombatAimController* Create(CombatController* control, PRIORITY priority, const NiPoint3& P);
+		virtual bool                               CanFireAtTarget(const NiPoint3* a_arg2, const NiPoint3* a_arg3);  // 05 - { return true; }
+		virtual bool                               CanFireNow();                                                     // 06 - { return true; }
+		virtual bool                               IsFacingTarget(float a_tolerance);                                // 07
+		virtual void                               Update();                                                         // 08
+		[[nodiscard]] virtual CombatAimController* Clone();                                                          // 09
+		virtual void                               OnWeaponTypeChanged();                                            // 0A - { return; }
 
 		// members
 		MagicCaster*      mcaster;         // 10 : or TESObjectWEAP
