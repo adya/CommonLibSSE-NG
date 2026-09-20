@@ -2242,7 +2242,6 @@ set(SOURCES
 	src/RE/C/Color.cpp
 	src/RE/C/ColorUtil.cpp
 	src/RE/C/CombatAcquireItem.cpp
-	src/RE/C/CombatAimController.cpp
 	src/RE/C/CombatAnimation.cpp
 	src/RE/C/CombatBehavior.cpp
 	src/RE/C/CombatBehaviorAccessors.cpp
@@ -2302,7 +2301,6 @@ set(SOURCES
 	src/RE/C/CombatGroup.cpp
 	src/RE/C/CombatInventory.cpp
 	src/RE/C/CombatPath.cpp
-	src/RE/C/CombatProjectileAimController.cpp
 	src/RE/C/CombatState.cpp
 	src/RE/C/CombatTargetLocation.cpp
 	src/RE/C/CombatTargetLocationSearch.cpp
